@@ -3,14 +3,14 @@ import Input from "./components/Input";
 import css from "./styles/styles.module.css";
 
 export default function App() {
-  const [initialValue, setInitialValue] = useState("");
+  const [currentValue, setCurrentValue] = useState("");
   const [interestRate, setInterestRate] = useState("");
   const [period, setPeriod] = useState("");
 
   const handleInputChange = (newValue, id) => {
     switch (id) {
       case "IV":
-        setInitialValue(newValue);
+        setCurrentValue(newValue);
         break;
       case "IR":
         setInterestRate(newValue);
@@ -25,14 +25,14 @@ export default function App() {
 
   return (
     <div>
-      <h2 className={css.header}>React Juros Compostos</h2>
+      <h2 className={css.header}>React - Juros Compostos</h2>
       <div className="container">
         <div className="row">
           <div className="col l4 s12">
             <Input
               id={"IV"}
               label={"Montante Inicial:"}
-              value={initialValue}
+              value={currentValue}
               min={0}
               max={9 ** 99}
               onInputChange={handleInputChange}
