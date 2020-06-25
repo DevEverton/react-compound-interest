@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./App.css";
 import Input from "./components/Input";
+import css from "./styles/styles.module.css";
 
 export default function App() {
   const [initialValue, setInitialValue] = useState("");
@@ -25,31 +25,41 @@ export default function App() {
 
   return (
     <div>
-      <h2>React Juros Compostos</h2>
-      <Input
-        id={"IV"}
-        label={"Montante Inicial:"}
-        value={initialValue}
-        min={0}
-        max={9 ** 99}
-        onInputChange={handleInputChange}
-      />
-      <Input
-        id={"IR"}
-        label={"Taxa de juros mensal:"}
-        value={interestRate}
-        min={-12}
-        max={12}
-        onInputChange={handleInputChange}
-      />
-      <Input
-        id={"P"}
-        label={"Período (meses):"}
-        value={period}
-        min={1}
-        max={200}
-        onInputChange={handleInputChange}
-      />
+      <h2 className={css.header}>React Juros Compostos</h2>
+      <div className="container">
+        <div className="row">
+          <div className="col l4 s12">
+            <Input
+              id={"IV"}
+              label={"Montante Inicial:"}
+              value={initialValue}
+              min={0}
+              max={9 ** 99}
+              onInputChange={handleInputChange}
+            />
+          </div>
+          <div className="col l4 s12">
+            <Input
+              id={"IR"}
+              label={"Taxa de juros mensal:"}
+              value={interestRate}
+              min={-12}
+              max={12}
+              onInputChange={handleInputChange}
+            />
+          </div>
+          <div className="col l4 s12">
+            <Input
+              id={"P"}
+              label={"Período (meses):"}
+              value={period}
+              min={1}
+              max={200}
+              onInputChange={handleInputChange}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
