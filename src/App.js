@@ -34,7 +34,7 @@ export default function App() {
               label={"Montante Inicial:"}
               value={currentValue}
               min={0}
-              max={9 ** 99}
+              max={100000}
               onInputChange={handleInputChange}
             />
           </div>
@@ -54,7 +54,7 @@ export default function App() {
               label={"Período (meses):"}
               value={period}
               min={1}
-              max={200}
+              max={36}
               onInputChange={handleInputChange}
             />
           </div>
