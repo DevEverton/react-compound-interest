@@ -26,4 +26,5 @@ function calculateValues(initial, interest, period) {
 function localCurrency(value) {
   return value.toLocaleString("pt-br", { style: "currency", currency: "BRL" });
 }
-console.log(calculateValues(7000, 2, 12));
+// console.log(calculateValues(5900, 0.8, 12));
+export { calculateValues };

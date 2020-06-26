@@ -1,11 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Input from "./components/Input";
 import css from "./styles/styles.module.css";
+import Installment from "./components/Installment";
+import { calculateValues } from "./helpers/Calculation.js";
 
 export default function App() {
   const [currentValue, setCurrentValue] = useState("");
-  const [interestRate, setInterestRate] = useState("");
+  const [interest, setInterest] = useState("");
   const [period, setPeriod] = useState("");
+  const [installments, setInstallments] = useState({});
+
+  useEffect(() => {
+    let internalCurrentValue =
+      currentValue === "" ? 1000 : parseFloat(currentValue);
+    let internalInterest = interest === "" ? 0.5 : parseFloat(interest);
+    let internalPeriod = period === "" ? 1 : parseFloat(period);
+
+    const calculatedValues = calculateValues(
+      internalCurrentValue,
+      internalInterest,
+      internalPeriod
+    );
+    setInstallments(calculatedValues);
+  }, [currentValue, interest, period]);
 
   const handleInputChange = (newValue, id) => {
     switch (id) {
@@ -13,14 +30,17 @@ export default function App() {
         setCurrentValue(newValue);
         break;
       case "IR":
-        setInterestRate(newValue);
+        setInterest(newValue);
+
         break;
       case "P":
         setPeriod(newValue);
+
         break;
       default:
         break;
     }
+    console.log(installments);
   };
 
   return (
@@ -42,7 +62,7 @@ export default function App() {
             <Input
               id={"IR"}
               label={"Taxa de juros mensal:"}
-              value={interestRate}
+              value={interest}
               min={-12}
               max={12}
               onInputChange={handleInputChange}
@@ -60,6 +80,7 @@ export default function App() {
           </div>
         </div>
       </div>
+      {/* <Installment value={} addedValue={} percentage={} /> */}
     </div>
   );
 }
