@@ -3,6 +3,7 @@ function calculateValues(initial, interest, period) {
   let currentValue = initial;
   let currentPercentage = 0;
   let addedAmount = 0;
+  let sign = interest > 0 ? "+" : "";
 
   const calculate = (initial, interest) => initial * (1 + interest / 100);
   const calculatePercentage = (initial, added) => (added * 100) / initial;
@@ -14,7 +15,7 @@ function calculateValues(initial, interest, period) {
 
     result[i] = [
       localCurrency(currentValue),
-      `+${addedAmount.toFixed(2)}`,
+      `${sign}${localCurrency(addedAmount)}`,
       `${currentPercentage.toFixed(2)}%`,
     ];
   }
@@ -25,4 +26,4 @@ function calculateValues(initial, interest, period) {
 function localCurrency(value) {
   return value.toLocaleString("pt-br", { style: "currency", currency: "BRL" });
 }
-console.log(calculateValues(5900, 0.8, 12));
+console.log(calculateValues(7000, 2, 12));
