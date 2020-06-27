@@ -26,29 +26,28 @@ export default function App() {
   }, [currentValue, interest, period]);
 
   useEffect(() => {
-    let elements = getInstallmentsElements();
-    setInstallmentsElements(elements);
-  }, [installmentsData]);
+    const getInstallmentsElements = () => {
+      if (installmentsData === {}) {
+        return;
+      }
+      let elements = [];
 
-  const getInstallmentsElements = () => {
-    if (installmentsData === {}) {
-      return;
-    }
-    let elements = [];
+      for (let i = 1; i <= period; i++) {
+        elements.push(
+          <Installment
+            key={i}
+            id={i}
+            value={installmentsData[i][0]}
+            addedValue={installmentsData[i][1]}
+            percentage={installmentsData[i][2]}
+          />
+        );
+      }
+      return elements;
+    };
 
-    for (let i = 1; i <= period; i++) {
-      elements.push(
-        <Installment
-          key={i}
-          id={i}
-          value={installmentsData[i][0]}
-          addedValue={installmentsData[i][1]}
-          percentage={installmentsData[i][2]}
-        />
-      );
-    }
-    return elements;
-  };
+    setInstallmentsElements(getInstallmentsElements());
+  }, [installmentsData]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleInputChange = (newValue, id) => {
     switch (id) {
@@ -96,7 +95,7 @@ export default function App() {
               id={"P"}
               label={"Período (meses):"}
               value={period}
-              min={1}
+              min={0}
               max={36}
               onInputChange={handleInputChange}
             />
