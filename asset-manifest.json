@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/react-compound-interest/static/css/main.2f227186.chunk.css",
+    "main.js": "/react-compound-interest/static/js/main.b2cc9318.chunk.js",
+    "main.js.map": "/react-compound-interest/static/js/main.b2cc9318.chunk.js.map",
+    "runtime-main.js": "/react-compound-interest/static/js/runtime-main.c59aec6f.js",
+    "runtime-main.js.map": "/react-compound-interest/static/js/runtime-main.c59aec6f.js.map",
+    "static/js/2.b0ee8ad1.chunk.js": "/react-compound-interest/static/js/2.b0ee8ad1.chunk.js",
+    "static/js/2.b0ee8ad1.chunk.js.map": "/react-compound-interest/static/js/2.b0ee8ad1.chunk.js.map",
+    "index.html": "/react-compound-interest/index.html",
+    "precache-manifest.4713fe732a07a7aee2d36381c5af0cbc.js": "/react-compound-interest/precache-manifest.4713fe732a07a7aee2d36381c5af0cbc.js",
+    "service-worker.js": "/react-compound-interest/service-worker.js",
+    "static/css/main.2f227186.chunk.css.map": "/react-compound-interest/static/css/main.2f227186.chunk.css.map",
+    "static/js/2.b0ee8ad1.chunk.js.LICENSE.txt": "/react-compound-interest/static/js/2.b0ee8ad1.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c59aec6f.js",
+    "static/js/2.b0ee8ad1.chunk.js",
+    "static/css/main.2f227186.chunk.css",
+    "static/js/main.b2cc9318.chunk.js"
+  ]
+}
