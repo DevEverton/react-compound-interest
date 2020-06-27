@@ -8,21 +8,47 @@ export default function App() {
   const [currentValue, setCurrentValue] = useState("");
   const [interest, setInterest] = useState("");
   const [period, setPeriod] = useState("");
-  const [installments, setInstallments] = useState({});
+  const [installmentsData, setInstallmentsData] = useState({});
+  const [installmentsElements, setInstallmentsElements] = useState([]);
 
   useEffect(() => {
     let internalCurrentValue =
-      currentValue === "" ? 1000 : parseFloat(currentValue);
-    let internalInterest = interest === "" ? 0.5 : parseFloat(interest);
-    let internalPeriod = period === "" ? 1 : parseFloat(period);
+      currentValue === "" ? 0 : parseFloat(currentValue);
+    let internalInterest = interest === "" ? 0 : parseFloat(interest);
+    let internalPeriod = period === "" ? 0 : parseFloat(period);
 
     const calculatedValues = calculateValues(
       internalCurrentValue,
       internalInterest,
       internalPeriod
     );
-    setInstallments(calculatedValues);
+    setInstallmentsData(calculatedValues);
   }, [currentValue, interest, period]);
+
+  useEffect(() => {
+    let elements = getInstallmentsElements();
+    setInstallmentsElements(elements);
+  }, [installmentsData]);
+
+  const getInstallmentsElements = () => {
+    if (installmentsData === {}) {
+      return;
+    }
+    let elements = [];
+
+    for (let i = 1; i <= period; i++) {
+      elements.push(
+        <Installment
+          key={i}
+          id={i}
+          value={installmentsData[i][0]}
+          addedValue={installmentsData[i][1]}
+          percentage={installmentsData[i][2]}
+        />
+      );
+    }
+    return elements;
+  };
 
   const handleInputChange = (newValue, id) => {
     switch (id) {
@@ -31,16 +57,13 @@ export default function App() {
         break;
       case "IR":
         setInterest(newValue);
-
         break;
       case "P":
         setPeriod(newValue);
-
         break;
       default:
         break;
     }
-    console.log(installments);
   };
 
   return (
@@ -80,7 +103,7 @@ export default function App() {
           </div>
         </div>
       </div>
-      {/* <Installment value={} addedValue={} percentage={} /> */}
+      <div className="container">{installmentsElements}</div>
     </div>
   );
 }
