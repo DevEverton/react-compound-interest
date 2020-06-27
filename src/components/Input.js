@@ -10,6 +10,7 @@ export default function Input({ min, max, value, id, label, onInputChange }) {
   return (
     <div className="input-field">
       <input
+        style={{ fontWeight: "200" }}
         type="number"
         value={value}
         min={min}

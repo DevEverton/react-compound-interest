@@ -2,3 +2,26 @@
   text-align: center;
   margin: 2rem;
 }
+
+.installmentContainer {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  margin: 0.5rem;
+}
+
+.installmentValues {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  font-weight: 200;
+}
+
+.installmentIndex {
+  background-color: #37a0d0;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  padding: 0.2rem;
+}

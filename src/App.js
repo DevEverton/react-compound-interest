@@ -34,13 +34,14 @@ export default function App() {
 
       for (let i = 1; i <= period; i++) {
         elements.push(
-          <Installment
-            key={i}
-            id={i}
-            value={installmentsData[i][0]}
-            addedValue={installmentsData[i][1]}
-            percentage={installmentsData[i][2]}
-          />
+          <div key={i} className="col l2 s6">
+            <Installment
+              id={i}
+              value={installmentsData[i][0]}
+              addedValue={installmentsData[i][1]}
+              percentage={installmentsData[i][2]}
+            />
+          </div>
         );
       }
       return elements;
@@ -67,7 +68,9 @@ export default function App() {
 
   return (
     <div>
-      <h2 className={css.header}>React - Juros Compostos</h2>
+      <h2 style={{ fontWeight: "200" }} className={css.header}>
+        React - Juros Compostos
+      </h2>
       <div className="container">
         <div className="row">
           <div className="col l4 s12">
@@ -102,7 +105,9 @@ export default function App() {
           </div>
         </div>
       </div>
-      <div className="container">{installmentsElements}</div>
+      <div className="container">
+        <div className="row">{installmentsElements}</div>
+      </div>
     </div>
   );
 }
