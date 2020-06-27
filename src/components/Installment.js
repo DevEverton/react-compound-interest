@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import css from "../styles/styles.module.css";
 
 export default function Installment({ id, value, addedValue, percentage }) {
-  const [color, setColor] = useState("");
+  const [colors, setColors] = useState({});
 
   useEffect(() => {
-    const colors = {
+    const colorPicker = {
       negative: {
         value: "#eb7077",
         percentage: "tomato",
@@ -15,16 +15,26 @@ export default function Installment({ id, value, addedValue, percentage }) {
         percentage: "#37A0D0",
       },
     };
-    console.log(typeof parseFloat(percentage));
-  }, []);
+    if (parseFloat(percentage) < 0) {
+      setColors(colorPicker.negative);
+    } else {
+      setColors(colorPicker.positive);
+    }
+  }, [percentage]);
+
   return (
     <div className={css.installmentContainer}>
-      <span className={css.installmentIndex}>{id}</span>
+      <span
+        style={{ backgroundColor: `${colors.value}` }}
+        className={css.installmentIndex}
+      >
+        {id}
+      </span>
 
       <div className={css.installmentValues}>
-        <span>{value}</span>
-        <span>{addedValue}</span>
-        <span>{percentage}</span>
+        <span style={{ color: `${colors.value}` }}>{value}</span>
+        <span style={{ color: `${colors.value}` }}>{addedValue}</span>
+        <span style={{ color: `${colors.percentage}` }}>{percentage}</span>
       </div>
     </div>
   );

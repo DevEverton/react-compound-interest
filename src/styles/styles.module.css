@@ -4,8 +4,9 @@
 }
 
 .installmentContainer {
-  border: 1px solid lightgray;
-  border-radius: 5px;
+  /* border: 1px solid lightgray; */
+  background-color: aliceblue;
+  border-radius: 0.5rem;
   display: flex;
   flex-direction: row;
   margin: 0.5rem;
@@ -19,9 +20,10 @@
 }
 
 .installmentIndex {
-  background-color: #37a0d0;
   text-align: center;
   color: white;
-  font-weight: bold;
+  font-weight: 200;
   padding: 0.2rem;
+  width: 1.5rem;
+  border-radius: 0.5rem 0 0 0.5rem;
 }
