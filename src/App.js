@@ -34,7 +34,7 @@ export default function App() {
 
       for (let i = 1; i <= period; i++) {
         elements.push(
-          <div key={i} className="col l2 s6">
+          <div key={i} className="col l3 s6">
             <Installment
               id={i}
               value={installmentsData[i][0]}
